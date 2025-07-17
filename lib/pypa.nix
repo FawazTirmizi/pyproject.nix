@@ -327,6 +327,8 @@ lib.fix (self: {
         assert m != null;
         platform.isLinux && arch == linuxArch
       )
+    else if hasPrefix "ios" platformTag then # IOS is entirely unsupported
+      false
     else
       throw "Unknown platform tag: '${platformTag}'";
 
